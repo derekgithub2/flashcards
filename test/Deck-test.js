@@ -22,7 +22,6 @@ describe('Deck', function () {
     it('should be initialized with an array of Card objects', () => {
 
         expect(deck).to.be.an.instanceOf(Deck)
-        // expect(deck).to.deep.equal([card1, card2, card3])
     })
 
     it('should know how many cards are in the deck', () => {

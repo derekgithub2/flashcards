@@ -1,10 +1,12 @@
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
+const util = require('./util');
+
 const Card = require('../src/Card');
 
 class Deck {
     constructor (deckOfCards) {
         this.cards = deckOfCards || []
-        // console.log(this.cards)
-
     }
     
     countCards () {

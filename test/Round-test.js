@@ -19,34 +19,68 @@ describe('Round', function () {
         card1 = new Card(1, 'What day is it?', ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], 'Tuesday')
         card2 = new Card(2, 'What is your name?', ['Jason', 'Charlie', 'Derek', 'Dylan'], 'Derek')
         card3 = new Card(3, 'What do you write with?', ['A baseball', 'A paperclip', 'an apple', 'a pencil'], 'a pencil')
-        deck = new Deck ([card1, card2, card3])
+        deck = [card1, card2, card3]
         turn = new Turn("yellow", card1)
-        round = new Round ();
+        round = new Round (deck);
+
     })
 
     it('should return the current card being played', () => {
-
+        
         round.returnCurrentCard()
-        // console.log(deck.cards[0])
 
-        expect(round.returnCurrentCard()).to.deep.equal(deck.cards[0])
+        // expect(round.deck)
 
+        expect(round.returnCurrentCard()).to.deep.equal(round.deck[0])
     })
 
-    it('should update turn count', () => {
-        // takeTurn method
+    it.only('should have a function, takeTurn, that updates turn count', () => {
+
+        round.takeTurn('Monday')
+        
+        expect(round.takeTurn()).to.equal(1)
     })
 
-    it('should evaluate guesses', () => {
-        // takeTurn method
+    it('should also evaulate guesses in this function', () => {
+
+        round.takeTurn('Monday')
+
+        expect(round.turn.evaluateGuess()).to.equal(false)
     })
 
-    it('should give feedback', () => {
-        // takeTurn method
+    it('should also give feedback', () => {
+
+        round.takeTurn('Monday')
+
+        expect(round.turn.giveFeedback()).to.equal(false)
     })
 
-    it('should store ids of incorrect guesses and store into a new array', () => {
-        // takeTurn method
+    it('should also store ids of incorrect guesses and store into an array of incorrect guesses', () => {
+
+        expect(round.incorrectGuesses).to.be.an('array')
+        expect(round.incorrectGuesses.length).to.equal(0)
+
+        round.takeTurn('Monday')
+
+        expect(round.incorrectGuesses.length).to.equal(1)
+    })
+
+    it('should have a method that calculates and returns the percentage of correct guesses', () => {
+
+        round.takeTurn('Monday')
+
+        round.calculatePercentCorrect()
+
+        expect(round.calculatePercentCorrect()).to.equal(round.incorrectGuesses.length / round.turnCount * 100)
+    })
+
+    it('should have a method that prints the following to the console: ** Round over! ** You answered <>% of the questions correctly!', () => {
+
+        round.takeTurn('Monday')
+        round.calculatePercentCorrect()
+        round.endRound()
+
+        expect(round.endRound()).to.equal(`You answered ${round.incorrectGuesses.length / round.turnCount * 100}% of the questions correctly!`)
     })
 
 })

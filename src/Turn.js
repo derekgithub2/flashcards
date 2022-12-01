@@ -27,12 +27,10 @@ class Turn {
     }
 
     giveFeedback () {
-        if (!this.evaluateGuess()) {
-            // console.log('Incorrect!')
-            return false
+        if (this.userGuess === this.currentCard.correctAnswer) {
+            return 'Correct!'
         } else {
-            // console.log('Correct!')
-            return true
+            return 'Incorrect!'
         }
     }
     
