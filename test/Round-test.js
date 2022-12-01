@@ -41,21 +41,25 @@ describe('Round', function () {
         expect(round.turnCount).to.equal(1)
     })
 
-    it.skip('should also evaulate guesses in this function', () => {
+    it('should also evaulate guesses in this function', () => {
 
         round.takeTurn('Monday')
 
         expect(round.turn.evaluateGuess()).to.equal(false)
     })
 
-    it.skip('should also give feedback', () => {
+    it('should also give feedback', () => {
 
         round.takeTurn('Monday')
 
-        expect(round.turn.giveFeedback()).to.equal(false)
+        expect(round.turn.giveFeedback()).to.equal("Incorrect!")
+
+        round.takeTurn('Tuesday')
+
+        expect(round.turn.giveFeedback()).to.equal("Correct!")
     })
 
-    it.skip('should also store ids of incorrect guesses and store into an array of incorrect guesses', () => {
+    it('should also store ids of incorrect guesses and store into an array of incorrect guesses', () => {
 
         expect(round.incorrectGuesses).to.be.an('array')
         expect(round.incorrectGuesses.length).to.equal(0)
@@ -65,7 +69,7 @@ describe('Round', function () {
         expect(round.incorrectGuesses.length).to.equal(1)
     })
 
-    it.skip('should have a method that calculates and returns the percentage of correct guesses', () => {
+    it('should have a method that calculates and returns the percentage of correct guesses', () => {
 
         round.takeTurn('Monday')
 
@@ -74,7 +78,7 @@ describe('Round', function () {
         expect(round.calculatePercentCorrect()).to.equal(round.incorrectGuesses.length / round.turnCount * 100)
     })
 
-    it.skip('should have a method that prints the following to the console: ** Round over! ** You answered <>% of the questions correctly!', () => {
+    it('should have a method that prints the following to the console: ** Round over! ** You answered <>% of the questions correctly!', () => {
 
         round.takeTurn('Monday')
         round.calculatePercentCorrect()

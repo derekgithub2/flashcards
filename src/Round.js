@@ -13,16 +13,14 @@ class Round {
         return this.deck[0]
     }
 
-    takeTurn (userGuess, ) {
-        this.turn = new Turn (userGuess)
+    takeTurn (userGuess) {
+        this.turn = new Turn (userGuess, this.deck[0])
         this.turnCount += 1
         this.turn.evaluateGuess()
-        // this.turn.evaluateGuess()
-        // this.turn.giveFeedback()
-        // if (!this.turn.evaluateGuess()) {
-        //     this.incorrectGuesses.push(this.turn.userGuess)
-        // }
-        // return this.turnCount
+        this.turn.giveFeedback()
+        if (this.turn.evaluateGuess() === false) {
+            this.incorrectGuesses.push(this.turn.userGuess)
+        }
     }
 
     calculatePercentCorrect () {
