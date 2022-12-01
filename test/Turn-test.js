@@ -23,7 +23,7 @@ describe('Turn', function () {
     })
 
     it('should instantiate a Card object for the current card in play', () => {
-        expect(turn.currentCard).to.equal(card)
+        expect(turn.currentCard).to.be.an.instanceOf(Card)
     })
 
     it('should return the users guess', () => {
@@ -51,6 +51,6 @@ describe('Turn', function () {
 
         turn.giveFeedback(turn.userGuess);
 
-        expect(turn.giveFeedback()).to.equal(false)
+        expect(turn.giveFeedback()).to.deep.equal('Incorrect!')
     })
 })

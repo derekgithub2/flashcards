@@ -29,33 +29,33 @@ describe('Round', function () {
         
         round.returnCurrentCard()
 
-        // expect(round.deck)
-
         expect(round.returnCurrentCard()).to.deep.equal(round.deck[0])
     })
 
-    it.only('should have a function, takeTurn, that updates turn count', () => {
+    it('should have a function, takeTurn, that updates turn count', () => {
+
+        expect(round.turnCount).to.equal(0)
 
         round.takeTurn('Monday')
         
-        expect(round.takeTurn()).to.equal(1)
+        expect(round.turnCount).to.equal(1)
     })
 
-    it('should also evaulate guesses in this function', () => {
+    it.skip('should also evaulate guesses in this function', () => {
 
         round.takeTurn('Monday')
 
         expect(round.turn.evaluateGuess()).to.equal(false)
     })
 
-    it('should also give feedback', () => {
+    it.skip('should also give feedback', () => {
 
         round.takeTurn('Monday')
 
         expect(round.turn.giveFeedback()).to.equal(false)
     })
 
-    it('should also store ids of incorrect guesses and store into an array of incorrect guesses', () => {
+    it.skip('should also store ids of incorrect guesses and store into an array of incorrect guesses', () => {
 
         expect(round.incorrectGuesses).to.be.an('array')
         expect(round.incorrectGuesses.length).to.equal(0)
@@ -65,7 +65,7 @@ describe('Round', function () {
         expect(round.incorrectGuesses.length).to.equal(1)
     })
 
-    it('should have a method that calculates and returns the percentage of correct guesses', () => {
+    it.skip('should have a method that calculates and returns the percentage of correct guesses', () => {
 
         round.takeTurn('Monday')
 
@@ -74,7 +74,7 @@ describe('Round', function () {
         expect(round.calculatePercentCorrect()).to.equal(round.incorrectGuesses.length / round.turnCount * 100)
     })
 
-    it('should have a method that prints the following to the console: ** Round over! ** You answered <>% of the questions correctly!', () => {
+    it.skip('should have a method that prints the following to the console: ** Round over! ** You answered <>% of the questions correctly!', () => {
 
         round.takeTurn('Monday')
         round.calculatePercentCorrect()
