@@ -8,16 +8,27 @@ const Turn = require('../src/Turn');
 
 
 describe('Deck', function () {
+    let deck
+    let card1, card2, card3
 
-    beforeEach('deck instantiate 3 new cards', function (){
+    beforeEach (() => {
+        card1 = new Card(1, 'What day is it?', ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], 'Tuesday')
+        card2 = new Card(2, 'What is your name?', ['Jason', 'Charlie', 'Derek', 'Dylan'], 'Derek')
+        card3 = new Card(3, 'What do you write with?', ['A baseball', 'A paperclip', 'an apple', 'a pencil'], 'a pencil')
         deck = new Deck ([card1, card2, card3])
-        card1 = new Card(1, 'What day is it?', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'Tuesday')
-        card1 = new Card(2, 'What is your name?', ['Jason', 'Charlie', 'Derek', 'Dylan'], 'Derek')
+
     })
 
-    it.skip('should be a function', () => {
-        expect(deck).to.be.a('function')
+    it('should be initialized with an array of Card objects', () => {
+
+        expect(deck).to.be.an.instanceOf(Deck)
+        // expect(deck).to.deep.equal([card1, card2, card3])
     })
 
+    it('should know how many cards are in the deck', () => {
+        
+        deck.countCards();
 
+        expect(deck.countCards()).to.deep.equal(deck.cards.length)
+    })
 })

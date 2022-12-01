@@ -10,13 +10,11 @@ class Turn {
         this.currentCard = card
     }
 
-    returnGuess (guess) {
-        this.userGuess = guess
+    returnGuess () {
         return this.userGuess
     }
 
-    returnCard (card) {
-        this.currentCard = card
+    returnCard () {
         return this.currentCard
     }
 
