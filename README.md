@@ -11,4 +11,4 @@ JavaScript, Chai, Mocha, Node.js
 
 1. Clone down this repo using the SSH key from the green < > Code button.
 2. cd into the flashcards directory
-3. Run `npm index.html
+3. Run `npm index.js`
