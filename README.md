@@ -5,7 +5,7 @@ This project allows the user to play through flashcards through the Command-Line
 ![flash cards example gif](https://media.giphy.com/media/J8elQfIBDSCEZbeY3O/giphy.gif)
 
 # Technologies used 
-JavaScript, ESLint, 
+JavaScript, ESLint, Chai, Mocha, Node.js
 
 # Install/Setup instructions
 
