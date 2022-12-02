@@ -2,7 +2,7 @@
 This project allows the user to play through flashcards through the Command-Line-Interface of the Terminal. 
 
 # Application Preview 
-![flash cards example gif](https://media.giphy.com/media/J8elQfIBDSCEZbeY3O/giphy.gif)
+![flash cards example gif](https://media.giphy.com/media/B3pZyWRlTFTzshm6tP/giphy.gif)
 
 # Technologies used 
 JavaScript, Chai, Mocha, Node.js
