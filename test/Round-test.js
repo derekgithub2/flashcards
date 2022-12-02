@@ -3,7 +3,6 @@ const { prototypeData } = require('../src/data');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
-const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
@@ -54,7 +53,7 @@ describe('Round', function () {
 
         expect(round.turn.giveFeedback()).to.equal("Incorrect!")
 
-        round.takeTurn('Tuesday')
+        round.takeTurn('Derek')
 
         expect(round.turn.giveFeedback()).to.equal("Correct!")
     })
@@ -65,8 +64,9 @@ describe('Round', function () {
         expect(round.incorrectGuesses.length).to.equal(0)
 
         round.takeTurn('Monday')
+        round.takeTurn('Wednesday')
 
-        expect(round.incorrectGuesses.length).to.equal(1)
+        expect(round.incorrectGuesses.length).to.equal(2)
     })
 
     it('should have a method that calculates and returns the percentage of correct guesses', () => {
@@ -78,7 +78,7 @@ describe('Round', function () {
         expect(round.calculatePercentCorrect()).to.equal(round.incorrectGuesses.length / round.turnCount * 100)
     })
 
-    it('should have a method that prints the following to the console: ** Round over! ** You answered <>% of the questions correctly!', () => {
+    it('should have a method that prints a message to the console', () => {
 
         round.takeTurn('Monday')
         round.calculatePercentCorrect()
